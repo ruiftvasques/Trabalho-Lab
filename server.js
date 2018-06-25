@@ -163,7 +163,7 @@ var dia= new Date().getDay();
 var mes= new Date().getMonth();
 var horas=new Date().getHours();
 var min=new Date().getMinutes();
-var seg=new Date().getSeconds();
+//var seg=new Date().getSeconds();
 
 
 //objetos
