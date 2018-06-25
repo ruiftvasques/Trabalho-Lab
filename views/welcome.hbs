@@ -7,22 +7,33 @@
 <body>
     
     <h1>{{title}}</h1>
-
-
-
-
-    <form action="/">
+    {{!-- <form action="/">
     <input type="text" name="local" id="item"/>
     <button type="submit" id="enviar"> Enviar</button>
-    </form>
+    </form> --}}
 
                 
-                <div class="form-group">
-                <button type="submit" id="adicionar" class="btn btn-primary">Adicionar</button>
-                <button type="reset" id="clean"  class="btn btn-secondary">Limpar lista</button>
-              </div>
-                
             
+
+
+
+  <div class="container">    
+              <form action="/">
+                <input type="text" name="local" id="item"/>
+                <button type="submit" id="enviar"> Enviar</button>
+                </form>
+            
+          <form  class="form-horizontal"> 
+          <div class="form-group">
+            <button type="submit" id="adicionar" class="btn btn-primary">Adicionar favorito</button>
+            <button type="reset" id="clean"  class="btn btn-secondary">Limpar lista</button>
+        </div>
+    </form> 
+    </div>
+              
+   <p id="morada-list-text">Nenhum Item Adicionado</p>
+   <p>Favoritos</p>
+  <p class="list-group" id="morada-list"></p>          
 
     <h3>{{subtitle}}</h3>
     <h1>{{title1}}</h1>
@@ -120,10 +131,71 @@
     <p>{{text95}}</p>
     <p>{{text96}}</p>
     <p>{{text97}}</p>
+    <h1>{{title11}}</h1>
+    <p>{{text100}}</p>
+    <p>{{text101}}</p>
+    <p>{{text102}}</p>
+    <p>{{text103}}</p>
+    <p>{{text104}}</p>
+    <p>{{text105}}</p>
+    <p>{{text106}}</p>
+    <p>{{text107}}</p>
 
   
     
-    
+     <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script>
+    $(document).ready(function () {
+
+       $("#morada-list").hide();
+       $("#item").focus();
+
+      /*
+       * check browser supports local storage
+       */
+      if (localStorage) {
+
+        var moradaList_string = localStorage.getItem('moradaList');
+        if (moradaList_string) {
+          $("#morada-list-text").hide();
+          $("#morada-list").show();
+          var moradaList = JSON.parse(moradaList_string);
+          console.log(moradaList);
+          $.each(moradaList, (index, text) => {
+            ("#morada-list").append(`<p class="list-group-item">${text}</p>`);
+             
+          });
+        }
+        
+        $("form")
+          /*
+           * clear local storage when the form is reseted
+           */
+          .on('reset', function(){
+            console.log('cleaning!...');
+            localStorage.clear();
+            location.reload();
+          })
+          /*
+           * add to local storage when the form is submitted
+           */
+           document.getElementById("adicionar").onclick=function(){
+            var moradaList_string = localStorage.getItem('moradaList');
+            var moradaList =[];
+
+            if(moradaList_string) {
+              moradaList = JSON.parse(moradaList_string);
+            }
+            moradaList.push($("#item").val());
+            localStorage.setItem('moradaList', JSON.stringify(moradaList));
+            console.log(localStorage);
+          }
+      }
+    });
+    </script>
 
 
 </body>

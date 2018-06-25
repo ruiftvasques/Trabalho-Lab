@@ -174,12 +174,14 @@ var seg=new Date().getSeconds();
 
         request({url:`https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAdress}&key=${GoogleKey}`,
         json: true},(error,response,body) => {
-                if(body.results[0].geometry.location.lat==undefined && body.results[0].geometry.location.lng==undefined){
-                    console.log("rro");
-                }else{
-                var lat=body.results[0].geometry.location.lat;
-                var lng=body.results[0].geometry.location.lng;
-              }
+
+
+          try { 
+          var lat=body.results[0].geometry.location.lat;
+          var lng=body.results[0].geometry.location.lng;
+            
+        
+                        
                 formatted_address= body.results[0].formatted_address;
                 console.log("latitude:"+lat);
                 console.log("longitude:"+lng);
@@ -294,7 +296,7 @@ var seg=new Date().getSeconds();
 
 
                   //dia ataul
-                  timeD0=dia + "-"+ mes;
+                  //timeD0=dia + "-"+ mes;
                   summary1D0=DSbody.daily.summary;
                   icon1D0=DSbody.daily.icon;
                   summaryD0=DSbody.daily.data[0].summary;
@@ -308,7 +310,7 @@ var seg=new Date().getSeconds();
 
                    //dia 1
                    
-                   timeD1=dia + 1+ "-"+ mes;
+                   
                    summaryD1=DSbody.daily.data[1].summary;
                    iconD1=DSbody.daily.data[1].icon;
                    precipProbabilityD1=DSbody.daily.data[1].precipProbability;
@@ -426,7 +428,7 @@ var seg=new Date().getSeconds();
                   text87:"humidity: "+humidityD0,
                   text88:"windSpeed: "+windSpeedD0,
                   text89:"uvIndex: "+uvIndexD0, 
-                  title10:"dia atual"+ timeD1,
+                  title10: timeD1,
                   text90:"summary: "+summaryD1,
                   text91:"icon: "+iconD1,
                   text92:"precipProbability: "+ precipProbabilityD1,
@@ -435,7 +437,7 @@ var seg=new Date().getSeconds();
                   text95:"humidity: "+humidityD1,
                   text96:"windSpeed: "+windSpeedD1,
                   text97:"uvIndex: "+uvIndexD1,
-                  title11:"dia atual"+ timeD1,
+                  title11: timeD2,
                   text100:"summary: "+summaryD2,
                   text101:"icon: "+iconD2,
                   text102:"precipProbability: "+ precipProbabilityD2,
@@ -449,8 +451,17 @@ var seg=new Date().getSeconds();
                   
       
         
-                  
+              
               });
+
+            }
+            catch(err) {
+              res.render('welcome.hbs',{
+    
+                text1:"O endereço que escreveu é invalido",
+              })
+            }
+              
                });
 
 
