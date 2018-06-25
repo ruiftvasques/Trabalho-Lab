@@ -23,6 +23,10 @@ var uvIndex;
 
 
 //hora 0
+
+
+
+
 var summary1H0;
 var icon1H0;
 var timeH0;
@@ -34,6 +38,85 @@ var apparentTemperatureH0;
 var humidityH0;
 var windSpeedH0;
 var uvIndexH0;
+
+
+
+
+//hora 1
+
+var timeH1;
+var summaryH1;
+var iconH1;
+var precipProbabilityH1;
+var temperatureH1;
+var apparentTemperatureH1;
+var humidityH1;
+var windSpeedH1;
+var uvIndexH1;
+
+
+//hora 2
+
+var timeH2;
+var summaryH2;
+var iconH2;
+var precipProbabilityH2;
+var temperatureH2;
+var apparentTemperatureH2;
+var humidityH2;
+var windSpeedH2;
+var uvIndexH2;
+
+//hora 3
+
+var timeH3;
+var summaryH3;
+var iconH3;
+var precipProbabilityH3;
+var temperatureH3;
+var apparentTemperatureH3;
+var humidityH3;
+var windSpeedH3;
+var uvIndexH3;
+
+//hora 4
+
+var timeH4;
+var summaryH4;
+var iconH4;
+var precipProbabilityH4;
+var temperatureH4;
+var apparentTemperatureH4;
+var humidityH4;
+var windSpeedH4;
+var uvIndexH4;
+
+//hora 5
+
+var timeH5;
+var summaryH5;
+var iconH5;
+var precipProbabilityH5;
+var temperatureH5;
+var apparentTemperatureH5;
+var humidityH5;
+var windSpeedH5;
+var uvIndexH5;
+
+
+//hora 6
+
+var timeH6;
+var summaryH6;
+var iconH6;
+var precipProbabilityH6;
+var temperatureH6;
+var apparentTemperatureH6;
+var humidityH6;
+var windSpeedH6;
+var uvIndexH6;
+
+
 
 
 //dia atual
