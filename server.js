@@ -144,12 +144,14 @@ var formatted_address;
 
         request({url:`https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAdress}&key=${GoogleKey}`,
         json: true},(error,response,body) => {
-                if(body.results[0].geometry.location.lat==undefined && body.results[0].geometry.location.lng==undefined){
-                    console.log("rro");
-                }else{
-                var lat=body.results[0].geometry.location.lat;
-                var lng=body.results[0].geometry.location.lng;
-              }
+
+
+          try { 
+          var lat=body.results[0].geometry.location.lat;
+          var lng=body.results[0].geometry.location.lng;
+            
+        
+                        
                 formatted_address= body.results[0].formatted_address;
                 console.log("latitude:"+lat);
                 console.log("longitude:"+lng);
