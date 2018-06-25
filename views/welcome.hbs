@@ -4,28 +4,231 @@
     <meta charset="UTF-8">
     <title>Document</title>
 </head>
+    <style>
+        body{
+            width: auto;
+            margin: 0px;
+        }
+
+        .titulo{
+            position: fixed;
+            height: 50%;
+            padding: 30px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            width: auto;
+            height: 300px;
+            background-image: url("images/nuvens.jpg");
+            
+        }
+
+        .titulo h1{
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            filter:drop-shadow(8px 8px 10px black);
+        }
+        .titulo h3{
+            text-align: center;
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgb(0, 0, 0);
+        }
+
+        h1,
+        h3,
+        p{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        button{
+            background-color: transparent;
+            border: none;
+        }
+
+        input{
+            border-radius: 50px;
+            border: none;
+        }
+
+        .atual{
+            position: relative;
+            margin: 30px;                       
+        }
+
+        .principal{
+            display: inline-block;
+            left:30px;
+            width:60%;
+            height: 250px;
+            padding: 30px;
+            background-color: rgb(0, 130, 252);
+            color: white;
+            text-align: center;
+        }
+        .principal1{
+            display: inline-block;
+            left:30px;
+            width:60%;
+            height: 250px;
+            padding: 30px;
+            
+            float:right;
+            text-align: center;
+            background-color: rgb(0, 130, 252);
+            color: white;
+        }
+        .secundario1{
+           
+            color: black;
+            
+            display: inline-block;
+            width:25%;
+            
+            height: 250px;
+            padding: 30px;
+            
+        }
+        .secundario{
+            display: inline-block;
+            width:25%;
+            float:right;
+            height: 250px;
+            padding: 30px;
+            color: black;
+        }
+
+        form{
+            float: right;
+        }
+
+        a:link { 
+            text-decoration:none; 
+            color: white;
+            margin-right:50px;
+        } 
+        
+        .botoes{
+            text-align: center;
+            padding: 10px;
+            width: auto;
+            background-color:rgb(0, 130, 252); 
+            position: relative;
+            font-family: Arial, Helvetica, sans-serif;
+            text-decoration-line: none;
+            color: white;
+        }
+
+    </style>
 <body>
+
+    <div class="titulo"> 
+        <h1>{{title}}</h1>
+        
+        <form action="/">
+        <input type="text" name="local"/>
+        <button type="submit" id="enviar"><img src="images/procurar.png" width="17px" align="center"></button>
+        </form>
+        <h3>{{subtitle}}</h3>
+    </div>
+    <div class="slider">
+        <div class="botoes">
+            <a href="#slide-1">ATUAL</a>
+            <a href="#slide-2">HORA</a>
+            <a href="#slide-3">SEMANA</a>
+        </div>
+
+  <div class="slides">
+    <div id="slide-1">
+        
+          <div class="atual">
+        
+        <div class="principal">
+            <h1>{{title1}}</h1>
+            <p>{{text2}}</p>
+            <p>{{text3}}</p>
+            <p>{{text5}}</p>
+            <p>{{text1}}</p>
+        </div>
+        <div class="secundario">
+            
+            <p>{{text4}}</p>
+            <p>{{text6}}</p>
+            <p>{{text7}}</p>
+            <p>{{text8}}</p>
+            <p>{{text9}}</p>
+        </div>
+    </div>
+    </div>
+    <div id="slide-2">
+      2
+    </div>
+  </div>
+</div>
+
+    <div class="atual">
+        <div class="principal1">
+        <h1>{{title2}}</h1>
+        <p>{{text10}}</p>
+        <p>{{text11}}</p>
+        <p>{{text12}}</p>
+        <p>{{text15}}</p>
+        </div>
+        <div class="secundario1">
+        <p>{{text13}}</p>
+        <p>{{text14}}</p>        
+        <p>{{text16}}</p>
+        <p>{{text17}}</p>
+        <p>{{text18}}</p>
+        <p>{{text19}}</p>
+        </div>
+    </div>
+    <h1>{{title3}}</h1>
+    <p>{{text20}}</p>
+    <p>{{text21}}</p>
+    <p>{{text22}}</p>
+    <p>{{text23}}</p>
+    <p>{{text24}}</p>
+    <p>{{text25}}</p>
+    <p>{{text26}}</p>
+    <p>{{text27}}</p>
+    <p>{{text28}}</p>
+    <p>{{text29}}</p>
     
-    <h1>{{title}}</h1>
-    <form action="/weather">
-    <input type="text" name="local"/>
-    <button type="submit" id="enviar"> Enviar</button>
-    </form>
-    <p>{{texto}}</p>
-    <p>{{text1}}</p>
-    <p>{{text2}}</p>
-    <p>{{text3}}</p>
-    <p>{{text4}}</p>
-    <p>{{text5}}</p>
-    <p>{{text6}}</p>
-    <p>{{text7}}</p>
+    
+    <canvas id="icon1" width="128" height="128"></canvas>
+    <canvas id="icon2" width="128" height="128"></canvas>
+
+    <script>
+        var skycons = new Skycons({"color": "pink"});
+        // on Android, a nasty hack is needed: {"resizeClear": true}
+
+        // you can add a canvas by it's ID...
+        skycons.add("icon1", Skycons.PARTLY_CLOUDY_DAY);
+
+        // ...or by the canvas DOM element itself.
+        skycons.add(document.getElementById("icon2"), Skycons.RAIN);
 
 
-<script>
+        fetch('https://api.unsplash.com/photos/random/?count=5&client_id=52d8369eb3e2576a5f5b6423865e074e9c7045761bff1ac5664ff3e0bdb57a1d') 
+        .then(response => response.json())
+        .then(data => {
+            data.forEaach(function(image, i) {
+                document.querySelector("#slide-" + (i+1)).innerHTML = 
+                <img src="${image.urls.regular}" alt="">
+                <p class="author-info">
+                    <a href="${image.links.html}?utm_source=slider-thing&utm_medium=referral&utm_campaign=api-credit">Photo by ${image.user.name}</a> on <a href="https://unsplash.com/">Unsplash</a>
+                 </p>
+                    });
+                    });
+    </script>
 
-    var address=document.getElementById("item");
-    console.log(address);
-    module.exports.address=address;
-</script>
 </body>
 </html>
