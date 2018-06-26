@@ -165,7 +165,8 @@
           var moradaList = JSON.parse(moradaList_string);
           console.log(moradaList);
           $.each(moradaList, (index, text) => {
-            $("#morada-list").append(`<p class="list-group-item">${text}</p>`);
+            //$("#morada-list").append(`<p class="list-group-item">${text}</p>`);
+            $("#morada-list").append(`<li class="list-group-item"><a href="http://localhost:3500/?local=${text}">${text}</a></li>`);
              
           });
         }
@@ -183,6 +184,7 @@
            * add to local storage when the form is submitted
            */
            document.getElementById("adicionar").onclick=function(){
+            
             var moradaList_string = localStorage.getItem('moradaList');
             var moradaList =[];
 
@@ -193,6 +195,8 @@
             localStorage.setItem('moradaList', JSON.stringify(moradaList));
             console.log(localStorage);
           }
+
+           
       }
     });
     </script>
