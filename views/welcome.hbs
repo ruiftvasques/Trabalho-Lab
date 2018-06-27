@@ -250,7 +250,7 @@
                 <p>{{text15}}</p>
             </div>
             <div class="secundario1">
-                <p>{{text13}}</p>
+                <img src="./images/{{text13}}.png" alt="{{text13}}" width="30px" height="30px">
                 <p>{{text14}}</p>        
                 <p>{{text16}}</p>
                 <p>{{text17}}</p>
@@ -281,7 +281,7 @@
 
 
     <h1>{{title4}}</h1>
-    <p>{{text30}}</p>
+    <img src="./images/{{text30}}.png" alt="{{text30}}" width="30px" height="30px">
     <p>{{text31}}</p>
     <p>{{text32}}</p>
     <p>{{text33}}</p>
@@ -290,7 +290,7 @@
     <p>{{text36}}</p>
     <p>{{text37}}</p>
     <h1>{{title5}}</h1>
-    <p>{{text40}}</p>
+    <img src="./images/{{text40}}.png" alt="{{text40}}" width="30px" height="30px">
     <p>{{text41}}</p>
     <p>{{text42}}</p>
     <p>{{text43}}</p>
@@ -299,7 +299,7 @@
     <p>{{text46}}</p>
     <p>{{text47}}</p>
     <h1>{{title6}}</h1>
-    <p>{{text50}}</p>
+    <img src="./images/{{text50}}.png" alt="{{text50}}" width="30px" height="30px">
     <p>{{text51}}</p>
     <p>{{text52}}</p>
     <p>{{text53}}</p>
@@ -308,7 +308,7 @@
     <p>{{text56}}</p>
     <p>{{text57}}</p>
     <h1>{{title7}}</h1>
-    <p>{{text60}}</p>
+    <img src="./images/{{text60}}.png" alt="{{text60}}" width="30px" height="30px">
     <p>{{text61}}</p>
     <p>{{text62}}</p>
     <p>{{text63}}</p>
@@ -317,7 +317,7 @@
     <p>{{text66}}</p>
     <p>{{text67}}</p>
     <h1>{{title8}}</h1>
-    <p>{{text70}}</p>
+    <img src="./images/{{text70}}.png" alt="{{text70}}" width="30px" height="30px">
     <p>{{text71}}</p>
     <p>{{text72}}</p>
     <p>{{text73}}</p>
@@ -327,7 +327,7 @@
     <p>{{text77}}</p>
     <h1>{{title9}}</h1>
     <p>{{text80}}</p>
-    <p>{{text81}}</p>
+    <img src="./images/{{text81}}.png" alt="{{text83}}" width="30px" height="30px">
     <p>{{text82}}</p>
     <p>{{text83}}</p>
     <p>{{text84}}</p>
@@ -338,7 +338,7 @@
     <p>{{text89}}</p>
     <h1>{{title10}}</h1>
     <p>{{text90}}</p>
-    <p>{{text91}}</p>
+    <img src="./images/{{text91}}.png" alt="{{text91}}" width="30px" height="30px">
     <p>{{text92}}</p>
     <p>{{text93}}</p>
     <p>{{text94}}</p>
@@ -347,7 +347,7 @@
     <p>{{text97}}</p>
     <h1>{{title11}}</h1>
     <p>{{text100}}</p>
-    <p>{{text101}}</p>
+    <img src="./images/{{text101}}.png" alt="{{text101}}" width="30px" height="30px">
     <p>{{text102}}</p>
     <p>{{text103}}</p>
     <p>{{text104}}</p>
@@ -380,7 +380,8 @@
           var moradaList = JSON.parse(moradaList_string);
           console.log(moradaList);
           $.each(moradaList, (index, text) => {
-            $("#morada-list").append(`<p class="list-group-item">${text}</p>`);
+            //$("#morada-list").append(`<p class="list-group-item">${text}</p>`);
+            $("#morada-list").append(`<li class="list-group-item"><a href="http://localhost:3500/?local=${text}">${text}</a></li>`);
              
           });
         }
@@ -389,7 +390,7 @@
           /*
            * clear local storage when the form is reseted
            */
-          .onClick('#clean', function(){
+          .on('reset', function(){
             console.log('cleaning!...');
             localStorage.clear();
             location.reload();
@@ -398,6 +399,7 @@
            * add to local storage when the form is submitted
            */
            document.getElementById("adicionar").onclick=function(){
+            
             var moradaList_string = localStorage.getItem('moradaList');
             var moradaList =[];
 
@@ -408,6 +410,8 @@
             localStorage.setItem('moradaList', JSON.stringify(moradaList));
             console.log(localStorage);
           }
+
+           
       }
     });
     </script>
